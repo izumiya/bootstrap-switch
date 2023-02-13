@@ -1,7 +1,7 @@
 /**
   * bootstrap-switch - Turn checkboxes and radio buttons into toggle switches.
   *
-  * @version v3.3.5
+  * @version v3.4.0
   * @homepage https://bttstrp.github.io/bootstrap-switch
   * @author Mattia Larentis <mattia@larentis.eu> (http://larentis.eu)
   * @license MIT
@@ -79,7 +79,7 @@
         inverse = options.inverse;
 
     return [state ? 'on' : 'off', size, disabled ? 'disabled' : undefined, readonly ? 'readonly' : undefined, indeterminate ? 'indeterminate' : undefined, inverse ? 'inverse' : undefined, id ? 'id-' + id : undefined].filter(function (v) {
-      return v == null;
+      return v != null;
     });
   }
 
@@ -129,7 +129,7 @@
   function prvcontainerPosition() {
     var _this2 = this;
 
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.ope;
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.options.state;
 
     this.$container.css('margin-left', function () {
       var values = [0, '-' + _this2.privateHandleWidth + 'px'];
@@ -345,7 +345,7 @@
   function prvgetClasses(classes) {
     var _this8 = this;
 
-    if (!$.isArray(classes)) {
+    if (!Array.isArray(classes)) {
       return [prvgetClass.call(this, classes)];
     }
     return classes.map(function (v) {
